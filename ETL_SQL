@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS subcategory;
+
+CREATE TABLE subcategory (
+  ID INTEGER PRIMARY KEY,	
+  subcat VARCHAR(255) DEFAULT NULL,
+  country VARCHAR(255) DEFAULT NULL,
+  date DATE,
+  spend FLOAT);
+
+--Show all data to see column headers
+SELECT * FROM subcategory
+
+--Pull out data we need for graphing
+SELECT date, subcat, spend
+FROM subcategory
+
+--Update the date column values to DATE type
+alter table subcategory 
+  alter date type date using(date::date)
+  
+--Check data to see if date column values have updated
+SELECT * FROM subcategory
